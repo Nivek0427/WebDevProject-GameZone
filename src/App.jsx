@@ -3,6 +3,7 @@ import { Header } from './layout/Header'
 import { Menu } from './layout/Menu'
 import { Banner } from './layout/Banner'
 import { GameCard } from './layout/GameCard'
+import { ProductSection } from './layout/ProductSection'
 import './App.css'
 
 function App() {
@@ -67,7 +68,7 @@ function App() {
       <main>
         <ProductSection
                 title="Juegos destacados"
-                productos={productos}
+                productos={producto}
             />
       </main>
 
