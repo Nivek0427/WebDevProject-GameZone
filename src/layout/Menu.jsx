@@ -1,3 +1,5 @@
+import "./Menu.css";
+
 export function Menu() {
     return (
         <nav className="menu">
@@ -7,9 +9,6 @@ export function Menu() {
                     ☰ Categorías
                 </a>
 
-                <a href="#" className="menu-item">
-                    Juegos
-                </a>
 
                 <a href="#" className="menu-item">
                     Ofertas
@@ -20,20 +19,10 @@ export function Menu() {
                 </a>
 
                 <a href="#" className="menu-item">
-                    PC
+                    Ahora en tendencia
                 </a>
 
-                <a href="#" className="menu-item">
-                    PlayStation
-                </a>
-
-                <a href="#" className="menu-item">
-                    Xbox
-                </a>
-
-                <a href="#" className="menu-item">
-                    Nintendo
-                </a>
+                
 
             </div>
         </nav>

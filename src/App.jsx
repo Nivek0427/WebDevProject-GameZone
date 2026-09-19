@@ -4,7 +4,7 @@ import { Menu } from './layout/Menu'
 import { Banner } from './layout/Banner'
 import './App.css'
 
-export function App() {
+function App() {
   const [count, setCount] = useState(0)
 
   return (
@@ -17,3 +17,4 @@ export function App() {
   )
 }
 
+export default App;
