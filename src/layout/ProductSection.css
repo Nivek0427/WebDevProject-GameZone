@@ -5,7 +5,7 @@
     padding: 40px 24px;
 }
 
-/* ENCABEZADO /
+/* ENCABEZADO */
 
 .product-section-header {
     display: flex;
@@ -40,7 +40,7 @@
     text-decoration: underline;
 }
 
-/ PRODUCTOS /
+/* PRODUCTOS */
 
 .product-section-grid {
     display: grid;
@@ -50,7 +50,7 @@
     gap: 16px;
 }
 
-/ RESPONSIVE */
+/* RESPONSIVE */
 
 @media (max-width: 1100px) {
 

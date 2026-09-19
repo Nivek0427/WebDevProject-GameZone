@@ -18,7 +18,7 @@
     border-color: #444;
 }
 
-/* IMAGEN /
+/* IMAGEN */
 
 .game-card-image {
     position: relative;
@@ -46,7 +46,7 @@
     transform: scale(1.04);
 }
 
-/ AGOTADO /
+/* AGOTADO */
 
 .game-card-stock {
     position: absolute;
@@ -65,7 +65,7 @@
     font-weight: 700;
 }
 
-/ CONTENIDO /
+/* CONTENIDO */
 
 .game-card-content {
     padding: 15px;
@@ -106,7 +106,7 @@
     font-weight: 800;
 }
 
-/ BOTÓN */
+/* BOTÓN */
 
 .game-card-button {
     width: 100%;
