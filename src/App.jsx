@@ -4,6 +4,7 @@ import { Menu } from './layout/Menu'
 import { Banner } from './layout/Banner'
 import { GameCard } from './layout/GameCard'
 import { ProductSection } from './layout/ProductSection'
+import { Footer } from './layout/Footer'
 import './App.css'
 
 function App() {
@@ -71,7 +72,7 @@ function App() {
                 productos={producto}
             />
       </main>
-
+      <Footer />    
     </>
   )
 }
