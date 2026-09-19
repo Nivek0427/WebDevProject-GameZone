@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
+
 
 import { Header } from "../layout/Header";
 import { Menu } from "../layout/Menu";
@@ -15,15 +18,28 @@ export function Productos() {
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState("");
 
+    const [searchParams] = useSearchParams();
+
+    const categoriaSeleccionada = searchParams.get("categoria");
+
     useEffect(() => {
         cargarProductos();
         cargarCategorias();
-    }, []);
+    }, [categoriaSeleccionada]);
 
     const cargarProductos = async () => {
         try {
             const data = await obtenerProductos();
-            setProductos(data);
+            if (categoriaSeleccionada) {
+                const productosFiltrados = data.filter(
+                    (producto) =>
+                        producto.categoria === categoriaSeleccionada
+                );
+
+                setProductos(productosFiltrados);
+            } else {
+                setProductos(data);
+            }
         } catch (error) {
             console.error(error);
             setError("Error al cargar los productos");
