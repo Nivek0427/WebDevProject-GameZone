@@ -8,8 +8,7 @@ export function Footer() {
 
                 {/* Marca */}
                 <div className="footer-brand">
-                    <div className="footer-logo">
-                        <span>:video_game:</span>
+                    <div className="footer-logo">                        
                         <strong>GameZone</strong>
                     </div>
 
@@ -78,7 +77,7 @@ export function Footer() {
                     </span>
 
                     <span>
-                        Hecho para gamers :video_game:
+                        Hecho para gamers
                     </span>
                 </div>
 
