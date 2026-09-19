@@ -1,0 +1,196 @@
+.footer {
+    width: 100%;
+
+    margin-top: 50px;
+
+    background-color: #151515;
+    color: white;
+
+    border-top: 1px solid #292929;
+}
+
+.footer-container {
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 50px 24px;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+
+    gap: 50px;
+}
+
+/* MARCA */
+
+.footer-brand {
+    max-width: 330px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+}
+
+.footer-logo span {
+    font-size: 27px;
+}
+
+.footer-logo strong {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.footer-brand p {
+    margin: 0;
+
+    color: #999;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* REDES */
+
+.footer-social {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.footer-social a {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #333;
+    border-radius: 6px;
+
+    color: #ccc;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s,
+        border-color 0.2s;
+}
+
+.footer-social a:hover {
+    background-color: #ff6b00;
+
+    border-color: #ff6b00;
+
+    color: white;
+}
+
+/* COLUMNAS */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+.footer-column h3 {
+    margin: 0 0 8px;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.footer-column a {
+    color: #999;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: color 0.2s;
+}
+
+.footer-column a:hover {
+    color: #ff6b00;
+}
+
+/* CONTACTO */
+
+.footer-contact p {
+    margin: 0;
+
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+/* PARTE INFERIOR */
+
+.footer-bottom {
+    border-top: 1px solid #292929;
+}
+
+.footer-bottom-container {
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 18px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #666;
+
+    font-size: 11px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 40px;
+    }
+
+    .footer-brand {
+        max-width: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        padding: 40px 20px;
+
+        gap: 30px;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+}
