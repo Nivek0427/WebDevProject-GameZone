@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import {
     obtenerCategorias,
     crearCategoria,
-    actualizarCategoria
+    actualizarCategoria,
+    eliminarCategoria
 } from "../../services/categoriaService";
 
 import { ListaCategoriasAdmin } from "./ListaCategoriasAdmin";
@@ -67,6 +68,21 @@ export function GestionCategorias() {
         }
     };
 
+    const eliminar = async (categoria) => {
+        try {
+            await eliminarCategoria(categoria.id);
+
+            setCategorias(
+                categorias.filter(
+                    (item) => item.id !== categoria.id
+                )
+            );
+
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     const editarCategoria = (categoria) => {
         setCategoriaEditar(categoria);
         setMostrarFormulario(true);
@@ -114,6 +130,7 @@ export function GestionCategorias() {
             <ListaCategoriasAdmin
                 categorias={categorias}
                 onEditar={editarCategoria}
+                onEliminar={eliminar}
             />
 
         </section>

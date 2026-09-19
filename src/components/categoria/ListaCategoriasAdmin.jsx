@@ -2,8 +2,20 @@ import "./ListaCategoriasAdmin.css";
 
 export function ListaCategoriasAdmin({
     categorias,
-    onEditar
+    onEditar,
+    onEliminar
 }) {
+
+    const confirmarEliminar = (categoria) => {
+        const confirmar = window.confirm(
+            `¿Está seguro de eliminar la categoría "${categoria.nombre}"?`
+        );
+
+        if (confirmar) {
+            onEliminar(categoria);
+        }
+    };
+
     return (
         <div className="lista-categorias">
             <table>
@@ -36,6 +48,15 @@ export function ListaCategoriasAdmin({
                                     onClick={() => onEditar(categoria)}
                                 >
                                     Editar
+                                </button>
+
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        confirmarEliminar(categoria)
+                                    }
+                                >
+                                    Eliminar
                                 </button>
                             </td>
                         </tr>
