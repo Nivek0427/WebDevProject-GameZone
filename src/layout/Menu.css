@@ -1,0 +1,41 @@
+.menu {
+    width: 100%;
+    background-color: #1d1d1d;
+    border-bottom: 1px solid #303030;
+}
+
+.menu-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    overflow-x: auto;
+}
+
+.menu-item {
+    padding: 14px 16px;
+
+    color: #d6d6d6;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #292929;
+    color: white;
+}
+
+.menu-categories {
+    font-weight: 700;
+    color: white;
+}
