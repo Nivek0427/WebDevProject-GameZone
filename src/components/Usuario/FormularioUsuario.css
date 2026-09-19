@@ -1,0 +1,73 @@
+.formulario-usuario {
+    margin-bottom: 30px;
+    padding: 24px;
+    background-color: #1d1d1d;
+    border: 1px solid #303030;
+    border-radius: 8px;
+}
+
+.formulario-usuario h2 {
+    margin: 0 0 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.formulario-usuario .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 16px;
+}
+
+.formulario-usuario .form-group label {
+    color: #d6d6d6;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.formulario-usuario input,
+.formulario-usuario textarea,
+.formulario-usuario select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #3a3a3a;
+    border-radius: 5px;
+    background-color: #252525;
+    color: white;
+    font-family: inherit;
+}
+
+.formulario-usuario input:focus,
+.formulario-usuario textarea:focus,
+.formulario-usuario select:focus {
+    outline: none;
+    border-color: #ff6b00;
+}
+
+.formulario-usuario .form-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.formulario-usuario .form-actions button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6b00;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.formulario-usuario .form-actions button:hover {
+    background-color: #e85f00;
+}
+
+.formulario-usuario .form-actions button[type="button"] {
+    background-color: #333;
+}
+
+.formulario-usuario .form-actions button[type="button"]:hover {
+    background-color: #444;
+}

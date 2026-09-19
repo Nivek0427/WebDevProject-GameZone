@@ -1,0 +1,60 @@
+.lista-ordenes {
+    width: 100%;
+    overflow-x: auto;
+    background-color: #1d1d1d;
+    border: 1px solid #303030;
+    border-radius: 8px;
+}
+
+.lista-ordenes table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lista-ordenes th,
+.lista-ordenes td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #303030;
+}
+
+.lista-ordenes th {
+    background-color: #252525;
+    color: white;
+    font-size: 13px;
+}
+
+.lista-ordenes td {
+    color: #cfcfcf;
+    font-size: 14px;
+}
+
+.lista-ordenes tbody tr:hover {
+    background-color: #252525;
+}
+
+.lista-ordenes td button {
+    padding: 7px 12px;
+    border: 1px solid #ff6b00;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #ff6b00;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.lista-ordenes td button:hover {
+    background-color: #ff6b00;
+    color: white;
+}
+
+.lista-ordenes td button + button {
+    margin-left: 8px;
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.lista-ordenes td button + button:hover {
+    background-color: #dc3545;
+    color: white;
+}

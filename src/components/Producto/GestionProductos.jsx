@@ -12,7 +12,7 @@ import { obtenerCategorias } from "../../services/categoriaService";
 import { ListaProductosAdmin } from "./ListaProductosAdmin";
 import { FormularioProducto } from "./FormularioProducto";
 
-//import "./GestionProductos.css";
+import "./GestionProductos.css";
 
 export function GestionProductos() {
 

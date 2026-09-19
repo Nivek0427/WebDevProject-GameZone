@@ -1,4 +1,4 @@
-//import "./ListaProductosAdmin.css";
+import "./ListaProductosAdmin.css";
 
 export function ListaProductosAdmin({
     productos,

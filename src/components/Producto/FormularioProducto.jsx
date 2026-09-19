@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-//import "./FormularioProducto.css";
+import "./FormularioProducto.css";
 
 export function FormularioProducto({
     productoEditar,
