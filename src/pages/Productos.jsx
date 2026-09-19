@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 
 import { Header } from "../layout/Header";
 import { Menu } from "../layout/Menu";
-import { Banner } from "../layout/Banner";
 import { ProductSection } from "../layout/ProductSection";
 import { Footer } from "../layout/Footer";
 
 import { obtenerProductos } from "../services/productoService";
 import { obtenerCategorias } from "../services/categoriaService";
 
-export function Inicio() {
+export function Productos() {
 
     const [productos, setProductos] = useState([]);
     const [categorias, setCategorias] = useState([]);
@@ -23,14 +22,12 @@ export function Inicio() {
 
     const cargarProductos = async () => {
         try {
-            setCargando(true);
-
             const data = await obtenerProductos();
             setProductos(data);
-        }catch (error) {
+        } catch (error) {
             console.error(error);
             setError("Error al cargar los productos");
-        }finally {
+        } finally {
             setCargando(false);
         }
     };
@@ -51,8 +48,6 @@ export function Inicio() {
 
             <Menu />
 
-            <Banner />
-
             {cargando && (
                 <p>Cargando productos...</p>
             )}
@@ -63,7 +58,7 @@ export function Inicio() {
 
             {!cargando && !error && (
                 <ProductSection
-                    title="Juegos destacados"
+                    title="Todos los juegos"
                     productos={productos}
                     categorias={categorias}
                 />

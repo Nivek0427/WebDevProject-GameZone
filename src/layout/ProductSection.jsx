@@ -1,7 +1,12 @@
 import { GameCard } from "./GameCard";
 import "./ProductSection.css";
 
-export function ProductSection({ title, productos }) {
+export function ProductSection({ title, productos, categorias }) {
+    
+    if(productos.length === 0) {
+        return null;
+    }
+    
     return (
         <section className="product-section">
 
@@ -19,6 +24,7 @@ export function ProductSection({ title, productos }) {
                     <GameCard
                         key={producto.id}
                         producto={producto}
+                        categorias={categorias}
                     />
                 ))}
 

@@ -13,7 +13,7 @@
     align-items: center;
     gap: 4px;
 
-    overflow-x: auto;
+    overflow: visible;
 }
 
 .menu-item {
@@ -38,4 +38,100 @@
 .menu-categories {
     font-weight: 700;
     color: white;
+}
+
+/* CONTENEDOR DEL MENÚ DE CATEGORÍAS */
+
+.menu-categories-wrapper {
+    position: relative;
+}
+
+/* BOTÓN DE CATEGORÍAS */
+
+.menu-categories {
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.categories-arrow {
+    font-size: 9px;
+}
+
+/* DROPDOWN */
+
+.categories-dropdown {
+    position: absolute;
+
+    top: calc(100% + 1px);
+    left: 0;
+
+    z-index: 1000;
+
+    width: 230px;
+
+    background-color: #1d1d1d;
+
+    border: 1px solid #333;
+    border-radius: 0 0 8px 8px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+
+    overflow: hidden;
+}
+
+/* TÍTULO */
+
+.categories-dropdown-title {
+    padding: 15px;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    border-bottom: 1px solid #333;
+}
+
+/* ELEMENTOS */
+
+.category-dropdown-item {
+    display: block;
+
+    padding: 12px 15px;
+
+    color: #bdbdbd;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+
+.category-dropdown-item:hover {
+    background-color: #292929;
+
+    color: #ff6b00;
+}
+
+/* SIN CATEGORÍAS */
+
+.categories-empty {
+    padding: 15px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.menu-categories {
+    font-family: inherit;
 }

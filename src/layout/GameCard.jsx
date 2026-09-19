@@ -1,6 +1,6 @@
 import "./GameCard.css";
 
-export function GameCard({ producto }) {
+export function GameCard({ producto, categorias }) {
 
     const {
         nombre,
@@ -8,6 +8,9 @@ export function GameCard({ producto }) {
         precio,
         stock
     } = producto;
+    const categoria = categorias.find(
+        (categoria) => categoria.id === producto.categoria
+    );
 
     return (
         <article className="game-card">
@@ -34,7 +37,7 @@ export function GameCard({ producto }) {
                 <div className="game-card-info">
 
                     <span className="game-card-label">
-                        Videojuego
+                        {categoria ? categoria.nombre : "Sin categoría"}
                     </span>
 
                     <span className="game-card-price">
