@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Search, ShoppingCart, UserRound } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
 
@@ -19,20 +20,19 @@ export function Header() {
         <header className="header">
             <div className="header-container">
 
-                <Link to="/" className="header-logo">
-                    <span className="logo-icon">🎮</span>
-                    <span className="logo-text">GameZone</span>
+                <Link to="/" className="header-logo" aria-label="GameZone inicio">
+                    <img src="/image/logo_header.PNG" alt="GameZone" />
                 </Link>
 
                 <div className="header-search">
+                    <Search size={18} aria-hidden="true" />
                     <input
-                        type="text"
+                        type="search"
                         placeholder="Buscar juegos, tarjetas y más..."
+                        aria-label="Buscar productos"
                     />
 
-                    <button type="button">
-                        🔍
-                    </button>
+                    <button type="button" aria-label="Buscar">Buscar</button>
                 </div>
 
                 <div className="header-actions">
@@ -44,8 +44,8 @@ export function Header() {
                                 to="/mis-compras"
                                 className="header-action"
                             >
-                                <span className="action-icon">
-                                    👤
+                                <span className="header-account-icon">
+                                    <UserRound size={20} />
                                 </span>
 
                                 <span className="action-content">
@@ -73,8 +73,8 @@ export function Header() {
                             to="/login"
                             className="header-action"
                         >
-                            <span className="action-icon">
-                                👤
+                            <span className="header-account-icon">
+                                <UserRound size={20} />
                             </span>
 
                             <span className="action-content">
@@ -93,9 +93,7 @@ export function Header() {
                         to="/carrito"
                         className="header-cart"
                     >
-                        <span className="cart-icon">
-                            🛒
-                        </span>
+                        <ShoppingCart size={22} />
 
                         {cantidadTotal > 0 && (
                             <span className="cart-count">

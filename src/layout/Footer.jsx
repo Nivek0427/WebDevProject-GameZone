@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { obtenerInformaciones } from "../services/informacionService";
+import { Clock3, MapPin, Phone } from "lucide-react";
 
 import "./Footer.css";
 
@@ -32,7 +33,7 @@ export function Footer() {
                 <div className="footer-section">
 
                     <div className="footer-logo">
-                        🎮 GameZone
+                        <img src="/image/logo_footer.PNG" alt="GameZone" />
                     </div>
 
                     <p>
@@ -51,15 +52,15 @@ export function Footer() {
                     {informacion ? (
                         <>
                             <p>
-                                📍 {informacion.direccion}
+                                <MapPin size={16} /> {informacion.direccion}
                             </p>
 
                             <p>
-                                📞 {informacion.telefono}
+                                <Phone size={16} /> {informacion.telefono}
                             </p>
 
                             <p>
-                                🕐 {informacion.horario}
+                                <Clock3 size={16} /> {informacion.horario}
                             </p>
                         </>
                     ) : (

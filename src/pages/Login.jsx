@@ -63,8 +63,11 @@ export function Login() {
         <div className="login">
             <div className="login-card">
                 <div className="login-header">
-                    <span className="login-icon">🎮</span>
-                    <h1>GameZone</h1>
+                    <img
+                        className="login-logo"
+                        src="/image/logo_header.PNG"
+                        alt="GameZone"
+                    />
                     <p>Inicia sesión en tu cuenta</p>
                 </div>
 

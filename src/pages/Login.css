@@ -4,16 +4,17 @@
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background-color: #111;
+    background: #101216;
 }
 
 .login-card {
     width: 100%;
     max-width: 420px;
-    padding: 32px;
-    background-color: #1d1d1d;
-    border: 1px solid #303030;
-    border-radius: 10px;
+    padding: 36px;
+    background: #1a1d24;
+    border: 1px solid #2d333d;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.24);
     color: white;
 }
 
@@ -22,8 +23,11 @@
     margin-bottom: 28px;
 }
 
-.login-icon {
-    font-size: 42px;
+.login-logo {
+    display: block;
+    width: min(240px, 100%);
+    height: auto;
+    margin: 0 auto 22px;
 }
 
 .login-header h1 {
