@@ -33,7 +33,7 @@ export function Footer() {
                 <div className="footer-section">
 
                     <div className="footer-logo">
-                        <img src="/image/logo_footer.png" alt="GameZone" />
+                        <img src={`${import.meta.env.BASE_URL}image/logo_footer.png`} alt="GameZone" />
                     </div>
 
                     <p>
