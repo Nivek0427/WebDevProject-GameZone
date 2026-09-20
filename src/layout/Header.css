@@ -207,3 +207,22 @@
         display: none;
     }
 }
+
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logout {
+    border: none;
+    background: transparent;
+    color: #999;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 6px 8px;
+}
+
+.header-logout:hover {
+    color: #ff6b00;
+}
