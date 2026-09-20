@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
@@ -26,10 +26,9 @@ import "./responsive.css";
 
 function App() {
     return (
-        <BrowserRouter>
-            <AuthProvider>
-                <CartProvider>
-                    <NotificationProvider>
+        <AuthProvider>
+            <CartProvider>
+                <NotificationProvider>
 
                     <Routes>
 
@@ -120,10 +119,9 @@ function App() {
                         </Route>
 
                     </Routes>
-                    </NotificationProvider>
-                </CartProvider>
-            </AuthProvider>
-        </BrowserRouter>
+                </NotificationProvider>
+            </CartProvider>
+        </AuthProvider>
     );
 }
 
