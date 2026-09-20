@@ -1,0 +1,32 @@
+.compra-exitosa {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    color: white;
+}
+
+.compra-exitosa-card {
+    max-width: 500px;
+    padding: 40px;
+    text-align: center;
+    background-color: #1d1d1d;
+    border: 1px solid #303030;
+    border-radius: 10px;
+}
+
+.compra-exitosa-card > span {
+    font-size: 50px;
+}
+
+.compra-exitosa-card a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 11px 18px;
+    border-radius: 5px;
+    background-color: #ff6b00;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}

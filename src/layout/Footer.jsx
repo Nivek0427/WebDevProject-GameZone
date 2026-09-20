@@ -1,85 +1,100 @@
+import { useEffect, useState } from "react";
+import { obtenerInformaciones } from "../services/informacionService";
+
 import "./Footer.css";
 
 export function Footer() {
+    const [informacion, setInformacion] = useState(null);
+
+    useEffect(() => {
+        cargarInformacion();
+    }, []);
+
+    const cargarInformacion = async () => {
+        try {
+            const datos = await obtenerInformaciones();
+
+            console.log("Información recibida:", datos);
+
+            if (datos.length > 0) {
+                setInformacion(datos[0]);
+            }
+        } catch (error) {
+            console.error("Error al cargar información:", error);
+        }
+    };
+
     return (
         <footer className="footer">
 
             <div className="footer-container">
 
-                {/* Marca */}
-                <div className="footer-brand">
-                    <div className="footer-logo">                        
-                        <strong>GameZone</strong>
+                <div className="footer-section">
+
+                    <div className="footer-logo">
+                        🎮 GameZone
                     </div>
 
                     <p>
-                        Tu zona gamer. Descubre juegos, ofertas
-                        y todo lo que necesitas para disfrutar
-                        de tus videojuegos favoritos.
+                        Tu tienda de videojuegos y
+                        entretenimiento digital.
                     </p>
 
-                    <div className="footer-social">
-                        <a href="#" aria-label="Facebook">f</a>
-                        <a href="#" aria-label="Instagram">◎</a>
-                        <a href="#" aria-label="Twitter">𝕏</a>
-                        <a href="#" aria-label="Discord">◈</a>
-                    </div>
                 </div>
 
-                {/* GameZone */}
-                <div className="footer-column">
-                    <h3>GameZone</h3>
+                <div className="footer-section">
 
-                    <a href="#">Inicio</a>
-                    <a href="#">Juegos</a>
-                    <a href="#">Ofertas</a>
-                    <a href="#">Tarjetas de regalo</a>
+                    <h3>
+                        Información
+                    </h3>
+
+                    {informacion ? (
+                        <>
+                            <p>
+                                📍 {informacion.direccion}
+                            </p>
+
+                            <p>
+                                📞 {informacion.telefono}
+                            </p>
+
+                            <p>
+                                🕐 {informacion.horario}
+                            </p>
+                        </>
+                    ) : (
+                        <p>
+                            Cargando información...
+                        </p>
+                    )}
+
                 </div>
 
-                {/* Ayuda */}
-                <div className="footer-column">
-                    <h3>Ayuda</h3>
+                <div className="footer-section">
 
-                    <a href="#">Preguntas frecuentes</a>
-                    <a href="#">Contacto</a>
-                    <a href="#">Términos y condiciones</a>
-                    <a href="#">Política de privacidad</a>
-                </div>
-
-                {/* Contacto */}
-                <div className="footer-column footer-contact">
-                    <h3>Contáctanos</h3>
+                    <h3>
+                        GameZone
+                    </h3>
 
                     <p>
-                        :round_pushpin: Bogotá, Colombia
+                        Juegos para todos
+                        los jugadores.
                     </p>
 
                     <p>
-                        :telephone_receiver: +57 300 000 0000
+                        Ofertas y entretenimiento
+                        en un solo lugar.
                     </p>
 
-                    <p>
-                        :envelope: contacto@gamezone.com
-                    </p>
-
-                    <p>
-                        :clock1: Lun - Vie: 8:00 AM - 6:00 PM
-                    </p>
                 </div>
 
             </div>
 
             <div className="footer-bottom">
 
-                <div className="footer-bottom-container">
-                    <span>
-                        © 2026 GameZone. Todos los derechos reservados.
-                    </span>
-
-                    <span>
-                        Hecho para gamers
-                    </span>
-                </div>
+                <p>
+                    © 2026 GameZone. Todos los derechos reservados.
+                </p>
 
             </div>
 
