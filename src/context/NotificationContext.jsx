@@ -15,7 +15,7 @@ export function NotificationProvider({ children }) {
 
         setTimeout(() => {
             setNotificacion(null);
-        }, 3000);
+        }, 1500);
     };
 
     return (

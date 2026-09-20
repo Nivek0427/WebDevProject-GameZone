@@ -7,6 +7,7 @@ import "./Header.css";
 
 export function Header() {
     const { usuario, autenticado, cerrarSesion } = useAuth();
+    const { cantidadTotal } = useCart();
 
     const navigate = useNavigate();
 
@@ -91,8 +92,14 @@ export function Header() {
                     <Link
                         to="/carrito"
                         className="header-cart"
+                        aria-label={`Carrito con ${cantidadTotal} productos`}
                     >
                         <ShoppingCart size={22} />
+                        {cantidadTotal > 0 && (
+                            <span className="header-cart-badge">
+                                {cantidadTotal}
+                            </span>
+                        )}
                     </Link>
 
                 </div>

@@ -133,13 +133,36 @@
 
 .header-cart {
     position: relative;
-
-    border: none;
-    background: transparent;
-
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #35404e;
+    border-radius: 10px;
+    background: #1b222c;
     color: white;
-
+    text-decoration: none;
     cursor: pointer;
+}
+
+.header-cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #ff6b00;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1;
+    border: 2px solid #11151c;
 }
 
 .cart-icon {
