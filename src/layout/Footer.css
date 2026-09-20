@@ -245,6 +245,19 @@
 
 .footer-bottom {
     border-top-color: #28303b;
+    background: #0a0d12;
+    padding: 0 32px;
+}
+
+.footer-bottom p {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 17px 0;
+    color: #7f8b9b;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    text-align: center;
 }
 
 @media (max-width: 900px) {
@@ -259,6 +272,10 @@
         grid-template-columns: 1fr;
         padding: 36px 18px;
         gap: 28px;
+    }
+
+    .footer-bottom {
+        padding: 0 18px;
     }
 
     .footer-logo {

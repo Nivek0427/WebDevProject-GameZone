@@ -33,7 +33,7 @@ export function Footer() {
                 <div className="footer-section">
 
                     <div className="footer-logo">
-                        <img src="/image/logo_footer.PNG" alt="GameZone" />
+                        <img src="/image/logo_footer.png" alt="GameZone" />
                     </div>
 
                     <p>

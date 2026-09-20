@@ -21,7 +21,7 @@ export function Header() {
             <div className="header-container">
 
                 <Link to="/" className="header-logo" aria-label="GameZone inicio">
-                    <img src="/image/logo_header.PNG" alt="GameZone" />
+                    <img src="/image/logo_header.png" alt="GameZone" />
                 </Link>
 
                 <div className="header-search">
