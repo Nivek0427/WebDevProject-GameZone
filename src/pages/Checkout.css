@@ -1,17 +1,24 @@
 .checkout {
+    min-height: 70vh;
     max-width: 900px;
     margin: 0 auto;
-    padding: 40px 24px;
+    padding: 48px 24px 72px;
     color: white;
+}
+
+.checkout h1 {
+    margin: 0 0 24px;
+    color: #f4f6f8;
+    font-size: clamp(30px, 5vw, 44px);
 }
 
 .checkout-resumen,
 .checkout-form {
     padding: 24px;
     margin-bottom: 20px;
-    background-color: #1d1d1d;
-    border: 1px solid #303030;
-    border-radius: 8px;
+    background: #1a1d24;
+    border: 1px solid #2d333d;
+    border-radius: 14px;
 }
 
 .checkout-item {
@@ -47,7 +54,7 @@
     margin-top: 10px;
     padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #ff6b00;
     color: white;
     font-weight: 700;
@@ -65,4 +72,15 @@
 
 .checkout a {
     color: #ff6b00;
+}
+
+@media (max-width: 600px) {
+    .checkout {
+        padding: 30px 14px 48px;
+    }
+
+    .checkout-resumen,
+    .checkout-form {
+        padding: 18px;
+    }
 }

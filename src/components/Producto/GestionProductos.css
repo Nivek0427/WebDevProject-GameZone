@@ -36,3 +36,7 @@
 .gestion-productos .gestion-header button:hover {
     background-color: #e85f00;
 }
+
+.gestion-productos-formulario {
+    scroll-margin-top: 20px;
+}

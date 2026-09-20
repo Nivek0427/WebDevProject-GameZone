@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNotification } from "../../context/NotificationContext";
 
 import { obtenerOrdenes, crearOrden, actualizarOrden, eliminarOrden } from "../../services/ordenService";
 import { obtenerClientes } from "../../services/clienteService";
@@ -19,6 +20,7 @@ export function GestionOrdenes() {
 
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
     const [ordenEditar, setOrdenEditar] = useState(null);
+    const { mostrarNotificacion } = useNotification();
 
     useEffect(() => {
         cargarDatos();
@@ -42,6 +44,10 @@ export function GestionOrdenes() {
         } catch (error) {
             console.error(error);
             setError("Error al cargar las órdenes");
+            mostrarNotificacion(
+                "Error al cargar las órdenes",
+                "error"
+            );
         } finally {
             setCargando(false);
         }
@@ -64,6 +70,11 @@ export function GestionOrdenes() {
                             : item
                     )
                 );
+
+                mostrarNotificacion(
+                    "Orden actualizada correctamente",
+                    "success"
+                );
             } else {
                 const nuevaOrden = await crearOrden(orden);
 
@@ -71,6 +82,11 @@ export function GestionOrdenes() {
                     ...ordenesActuales,
                     nuevaOrden
                 ]);
+
+                mostrarNotificacion(
+                    "Orden creada correctamente",
+                    "success"
+                );
             }
 
             setOrdenEditar(null);
@@ -79,6 +95,10 @@ export function GestionOrdenes() {
         } catch (error) {
             console.error(error);
             setError("Error al guardar la orden");
+            mostrarNotificacion(
+                "Error al guardar la orden",
+                "error"
+            );
         }
     };
 
@@ -105,9 +125,18 @@ export function GestionOrdenes() {
                 ordenesActuales.filter((orden) => orden.id !== id)
             );
 
+            mostrarNotificacion(
+                "Orden eliminada correctamente",
+                "success"
+            );
+
         } catch (error) {
             console.error(error);
             setError("Error al eliminar la orden");
+            mostrarNotificacion(
+                "Error al eliminar la orden",
+                "error"
+            );
         }
     };
 

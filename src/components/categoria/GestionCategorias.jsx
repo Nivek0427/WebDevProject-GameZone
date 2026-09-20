@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNotification } from "../../context/NotificationContext";
 
 import {
     obtenerCategorias,
@@ -17,6 +18,7 @@ export function GestionCategorias() {
     const [categorias, setCategorias] = useState([]);
     const [categoriaEditar, setCategoriaEditar] = useState(null);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
+    const { mostrarNotificacion } = useNotification();
 
     useEffect(() => {
         cargarCategorias();
@@ -28,6 +30,10 @@ export function GestionCategorias() {
             setCategorias(data);
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al cargar las categorías",
+                "error"
+            );
         }
     };
 
@@ -50,6 +56,11 @@ export function GestionCategorias() {
                     )
                 );
 
+                mostrarNotificacion(
+                    "Categoría actualizada correctamente",
+                    "success"
+                );
+
             } else {
 
                 const data = await crearCategoria(categoria);
@@ -58,6 +69,11 @@ export function GestionCategorias() {
                     ...categorias,
                     data
                 ]);
+
+                mostrarNotificacion(
+                    "Categoría creada correctamente",
+                    "success"
+                );
             }
 
             setCategoriaEditar(null);
@@ -65,6 +81,10 @@ export function GestionCategorias() {
 
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al guardar la categoría",
+                "error"
+            );
         }
     };
 
@@ -78,8 +98,17 @@ export function GestionCategorias() {
                 )
             );
 
+            mostrarNotificacion(
+                "Categoría eliminada correctamente",
+                "success"
+            );
+
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al eliminar la categoría",
+                "error"
+            );
         }
     };
 

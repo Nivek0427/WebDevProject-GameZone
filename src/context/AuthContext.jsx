@@ -8,6 +8,8 @@ export function AuthProvider({ children }) {
         return guardado ? JSON.parse(guardado) : null;
     });
 
+    const esAdmin = !!usuario && String(usuario.nombre).toLowerCase() === "admin";
+
     const iniciarSesion = (usuario) => {
         localStorage.setItem("usuario", JSON.stringify(usuario));
         setUsuario(usuario);
@@ -23,6 +25,7 @@ export function AuthProvider({ children }) {
             value={{
                 usuario,
                 autenticado: !!usuario,
+                esAdmin,
                 iniciarSesion,
                 cerrarSesion
             }}

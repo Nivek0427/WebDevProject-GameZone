@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNotification } from "../../context/NotificationContext";
 
 import {
     obtenerUsuarios,
@@ -17,6 +18,7 @@ export function GestionUsuarios() {
     const [usuarios, setUsuarios] = useState([]);
     const [usuarioEditar, setUsuarioEditar] = useState(null);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
+    const { mostrarNotificacion } = useNotification();
 
     useEffect(() => {
         cargarUsuarios();
@@ -29,6 +31,10 @@ export function GestionUsuarios() {
             setUsuarios(data);
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al cargar los usuarios",
+                "error"
+            );
         }
     };
 
@@ -49,6 +55,11 @@ export function GestionUsuarios() {
                     )
                 );
 
+                mostrarNotificacion(
+                    "Usuario actualizado correctamente",
+                    "success"
+                );
+
             } else {
 
                 const data = await crearUsuario(usuario);
@@ -57,6 +68,11 @@ export function GestionUsuarios() {
                     ...usuarios,
                     data
                 ]);
+
+                mostrarNotificacion(
+                    "Usuario creado correctamente",
+                    "success"
+                );
             }
 
             setUsuarioEditar(null);
@@ -64,6 +80,10 @@ export function GestionUsuarios() {
 
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al guardar el usuario",
+                "error"
+            );
         }
     };
 
@@ -92,8 +112,17 @@ export function GestionUsuarios() {
                 )
             );
 
+            mostrarNotificacion(
+                "Usuario eliminado correctamente",
+                "success"
+            );
+
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al eliminar el usuario",
+                "error"
+            );
         }
     };
 

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useAuth } from "../context/AuthContext";
 import { obtenerCategorias } from "../services/categoriaService";
 
 import "./Menu.css";
 
 export function Menu() {
 
+    const { usuario, autenticado, esAdmin } = useAuth();
     const [categorias, setCategorias] = useState([]);
     const [mostrarCategorias, setMostrarCategorias] = useState(false);
     const [mostrarAdministracion, setMostrarAdministracion] = useState(false);
@@ -108,97 +110,99 @@ export function Menu() {
 
                 {/* ADMINISTRACIÓN */}
 
-                <div className="menu-admin-wrapper">
+                {autenticado && esAdmin && (
+                    <div className="menu-admin-wrapper">
 
-                    <button
-                        className="menu-item menu-admin-button"
-                        onClick={() =>
-                            setMostrarAdministracion(
-                                !mostrarAdministracion
-                            )
-                        }
-                    >
-                        ⚙ Administración
+                        <button
+                            className="menu-item menu-admin-button"
+                            onClick={() =>
+                                setMostrarAdministracion(
+                                    !mostrarAdministracion
+                                )
+                            }
+                        >
+                            ⚙ Administración
 
-                        <span className="admin-arrow">
-                            {mostrarAdministracion ? "▲" : "▼"}
-                        </span>
-                    </button>
+                            <span className="admin-arrow">
+                                {mostrarAdministracion ? "▲" : "▼"}
+                            </span>
+                        </button>
 
-                    {mostrarAdministracion && (
-                        <div className="admin-dropdown">
+                        {mostrarAdministracion && (
+                            <div className="admin-dropdown">
 
-                            <div className="admin-dropdown-title">
-                                Administración
+                                <div className="admin-dropdown-title">
+                                    Administración
+                                </div>
+
+                                <Link
+                                    to="/productos/administrar"
+                                    onClick={() =>
+                                        setMostrarAdministracion(false)
+                                    }
+                                >
+                                    Productos
+                                </Link>
+
+                                <Link
+                                    to="/categorias"
+                                    onClick={() =>
+                                        setMostrarAdministracion(false)
+                                    }
+                                >
+                                    Categorías
+                                </Link>
+
+                                <Link
+                                    to="/clientes"
+                                    onClick={() =>
+                                        setMostrarAdministracion(false)
+                                    }
+                                >
+                                    Clientes
+                                </Link>
+
+                                <Link
+                                    to="/usuarios"
+                                    onClick={() =>
+                                        setMostrarAdministracion(false)
+                                    }
+                                >
+                                    Usuarios
+                                </Link>
+
+                                <Link
+                                    to="/ordenes"
+                                    onClick={() =>
+                                        setMostrarAdministracion(false)
+                                    }
+                                >
+                                    Órdenes
+                                </Link>
+
+                                <Link
+                                    to="/estados-orden"
+                                    onClick={() =>
+                                        setMostrarAdministracion(false)
+                                    }
+                                >
+                                    Estados de orden
+                                </Link>
+
+                                <Link
+                                    to="/informacion"
+                                    onClick={() =>
+                                        setMostrarAdministracion(false)
+                                    }
+                                >
+                                    Información
+                                </Link>
+
                             </div>
+                        )}
 
-                            <Link
-                                to="/productos/administrar"
-                                onClick={() =>
-                                    setMostrarAdministracion(false)
-                                }
-                            >
-                                Productos
-                            </Link>
-
-                            <Link
-                                to="/categorias"
-                                onClick={() =>
-                                    setMostrarAdministracion(false)
-                                }
-                            >
-                                Categorías
-                            </Link>
-
-                            <Link
-                                to="/clientes"
-                                onClick={() =>
-                                    setMostrarAdministracion(false)
-                                }
-                            >
-                                Clientes
-                            </Link>
-
-                            <Link
-                                to="/usuarios"
-                                onClick={() =>
-                                    setMostrarAdministracion(false)
-                                }
-                            >
-                                Usuarios
-                            </Link>
-
-                            <Link
-                                to="/ordenes"
-                                onClick={() =>
-                                    setMostrarAdministracion(false)
-                                }
-                            >
-                                Órdenes
-                            </Link>
-
-                            <Link
-                                to="/estados-orden"
-                                onClick={() =>
-                                    setMostrarAdministracion(false)
-                                }
-                            >
-                                Estados de orden
-                            </Link>
-
-                            <Link
-                                to="/informacion"
-                                onClick={() =>
-                                    setMostrarAdministracion(false)
-                                }
-                            >
-                                Información
-                            </Link>
-
-                        </div>
-                    )}
-
-                </div>
+                    </div>
+                )}
 
             </div>
 

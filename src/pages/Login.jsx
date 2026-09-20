@@ -52,6 +52,10 @@ export function Login() {
         } catch (error) {
             console.error(error);
             setError("Error al iniciar sesión");
+            mostrarNotificacion(
+                "No fue posible iniciar sesión. Inténtalo nuevamente",
+                "error"
+            );
         }
     };
 

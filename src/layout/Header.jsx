@@ -41,7 +41,7 @@ export function Header() {
                         <div className="header-user">
 
                             <Link
-                                to="/"
+                                to="/mis-compras"
                                 className="header-action"
                             >
                                 <span className="action-icon">
