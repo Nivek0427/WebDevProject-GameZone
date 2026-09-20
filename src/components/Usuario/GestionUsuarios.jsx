@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNotification } from "../../context/NotificationContext";
+import { useAuth } from "../../context/AuthContext";
 
 import {
     obtenerUsuarios,
@@ -20,6 +21,7 @@ export function GestionUsuarios() {
     const [usuarioEditar, setUsuarioEditar] = useState(null);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
     const { mostrarNotificacion } = useNotification();
+    const { usuario: usuarioActual } = useAuth();
 
     useEffect(() => {
         cargarUsuarios();
@@ -104,6 +106,18 @@ export function GestionUsuarios() {
     };
 
     const eliminar = async (usuario) => {
+        const esUsuarioActual =
+            usuarioActual &&
+            String(usuarioActual.id) === String(usuario.id);
+
+        if (esUsuarioActual) {
+            mostrarNotificacion(
+                "No puedes eliminar tu propio usuario",
+                "error"
+            );
+            return;
+        }
+
         try {
             await eliminarUsuario(usuario.id);
 
