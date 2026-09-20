@@ -11,14 +11,17 @@ import { Login } from "./pages/Login";
 import { Carrito } from "./pages/Carrito";
 import { Checkout } from "./pages/Checkout";
 import { CompraExitosa } from "./pages/CompraExitosa";
+import { MisCompras } from "./pages/MisCompras";
 
 import { GestionCategorias } from "./components/categoria/GestionCategorias";
-import { GestionProductos } from "./components/producto/GestionProductos";
+import { GestionProductos } from "./components/Producto/GestionProductos";
 import { GestionClientes } from "./components/Cliente/GestionClientes";
 import { GestionUsuarios } from "./components/Usuario/GestionUsuarios";
 import { GestionEstadosOrden } from "./components/EstadoOrden/GestionEstadosOrden";
 import { GestionOrdenes } from "./components/Orden/GestionOrdenes";
 import { GestionInformacion } from "./components/Informacion/GestionInformacion";
+
+import "./responsive.css";
 
 function App() {
     return (
@@ -50,7 +53,7 @@ function App() {
                             element={<Carrito />}
                         />
 
-                        {/* Rutas protegidas */}
+                        {/* Rutas protegidas para cualquier usuario autenticado */}
                         <Route element={<ProtectedRoute />}>
 
                             <Route
@@ -62,6 +65,16 @@ function App() {
                                 path="/compra-exitosa"
                                 element={<CompraExitosa />}
                             />
+
+                            <Route
+                                path="/mis-compras"
+                                element={<MisCompras />}
+                            />
+
+                        </Route>
+
+                        {/* Rutas protegidas solo para administradores */}
+                        <Route element={<ProtectedRoute requireAdmin />}>
 
                             <Route
                                 path="/productos/administrar"

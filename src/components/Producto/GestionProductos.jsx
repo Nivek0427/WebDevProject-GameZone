@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useNotification } from "../../context/NotificationContext";
 
 import {
     obtenerProductos,
@@ -21,6 +22,10 @@ export function GestionProductos() {
     const [productoEditar, setProductoEditar] = useState(null);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
+    const formularioRef = useRef(null);
+
+    const { mostrarNotificacion } = useNotification();
+
     useEffect(() => {
         cargarProductos();
         cargarCategorias();
@@ -29,23 +34,83 @@ export function GestionProductos() {
     const cargarProductos = async () => {
         try {
             const data = await obtenerProductos();
+
             setProductos(data);
+
         } catch (error) {
-            console.error(error);
+
+            console.error(
+                "Error al cargar productos:",
+                error
+            );
+
+            mostrarNotificacion(
+                "Error al cargar los productos",
+                "error"
+            );
         }
     };
 
     const cargarCategorias = async () => {
         try {
             const data = await obtenerCategorias();
+
             setCategorias(data);
+
         } catch (error) {
-            console.error(error);
+
+            console.error(
+                "Error al cargar categorías:",
+                error
+            );
+
+            mostrarNotificacion(
+                "Error al cargar las categorías",
+                "error"
+            );
         }
     };
 
+    const desplazarAlFormulario = () => {
+        setTimeout(() => {
+
+            formularioRef.current?.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }, 100);
+    };
+
+    const nuevoProducto = () => {
+
+        setProductoEditar(null);
+
+        setMostrarFormulario(true);
+
+        desplazarAlFormulario();
+    };
+
+    const editarProducto = (producto) => {
+
+        setProductoEditar(producto);
+
+        setMostrarFormulario(true);
+
+        desplazarAlFormulario();
+    };
+
+    const cancelarFormulario = () => {
+
+        setProductoEditar(null);
+
+        setMostrarFormulario(false);
+    };
+
     const guardarProducto = async (producto) => {
+
         try {
+
             if (productoEditar) {
 
                 const data = await actualizarProducto(
@@ -53,59 +118,77 @@ export function GestionProductos() {
                     producto
                 );
 
-                setProductos(
-                    productos.map((item) =>
+                setProductos((actuales) =>
+                    actuales.map((item) =>
                         item.id === data.id
                             ? data
                             : item
                     )
                 );
 
+                mostrarNotificacion(
+                    "Producto actualizado correctamente"
+                );
+
             } else {
 
                 const data = await crearProducto(producto);
 
-                setProductos([
-                    ...productos,
+                setProductos((actuales) => [
+                    ...actuales,
                     data
                 ]);
+
+                mostrarNotificacion(
+                    "Producto creado correctamente"
+                );
             }
 
             setProductoEditar(null);
+
             setMostrarFormulario(false);
 
         } catch (error) {
-            console.error(error);
+
+            console.error(
+                "Error al guardar producto:",
+                error
+            );
+
+            mostrarNotificacion(
+                "Error al guardar el producto",
+                "error"
+            );
         }
     };
 
-    const editarProducto = (producto) => {
-        setProductoEditar(producto);
-        setMostrarFormulario(true);
-    };
-
-    const nuevoProducto = () => {
-        setProductoEditar(null);
-        setMostrarFormulario(true);
-    };
-
-    const cancelarFormulario = () => {
-        setProductoEditar(null);
-        setMostrarFormulario(false);
-    };
-
     const eliminar = async (producto) => {
+
         try {
+
             await eliminarProducto(producto.id);
 
-            setProductos(
-                productos.filter(
+            setProductos((actuales) =>
+                actuales.filter(
                     (item) => item.id !== producto.id
                 )
             );
 
+            mostrarNotificacion(
+                "Producto eliminado correctamente"
+            );
+
         } catch (error) {
-            console.error(error);
+
+            console.error(
+                "Error al eliminar producto:",
+                error
+            );
+
+            mostrarNotificacion(
+                "Error al eliminar el producto",
+                "error"
+            );
         }
     };
 
@@ -115,7 +198,9 @@ export function GestionProductos() {
             <div className="gestion-header">
 
                 <div>
-                    <h1>Gestión de productos</h1>
+                    <h1>
+                        Gestión de productos
+                    </h1>
 
                     <p>
                         Administra los productos de GameZone.
@@ -132,12 +217,17 @@ export function GestionProductos() {
             </div>
 
             {mostrarFormulario && (
-                <FormularioProducto
-                    productoEditar={productoEditar}
-                    categorias={categorias}
-                    onGuardar={guardarProducto}
-                    onCancelar={cancelarFormulario}
-                />
+                <div
+                    ref={formularioRef}
+                    className="gestion-productos-formulario"
+                >
+                    <FormularioProducto
+                        productoEditar={productoEditar}
+                        categorias={categorias}
+                        onGuardar={guardarProducto}
+                        onCancelar={cancelarFormulario}
+                    />
+                </div>
             )}
 
             <ListaProductosAdmin

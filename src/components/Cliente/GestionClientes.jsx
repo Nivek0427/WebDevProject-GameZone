@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNotification } from "../../context/NotificationContext";
 
 import {
     obtenerClientes,
@@ -17,6 +18,7 @@ export function GestionClientes() {
     const [clientes, setClientes] = useState([]);
     const [clienteEditar, setClienteEditar] = useState(null);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
+    const { mostrarNotificacion } = useNotification();
 
     useEffect(() => {
         cargarClientes();
@@ -29,6 +31,10 @@ export function GestionClientes() {
             setClientes(data);
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al cargar los clientes",
+                "error"
+            );
         }
     };
 
@@ -49,6 +55,11 @@ export function GestionClientes() {
                     )
                 );
 
+                mostrarNotificacion(
+                    "Cliente actualizado correctamente",
+                    "success"
+                );
+
             } else {
 
                 const data = await crearCliente(cliente);
@@ -57,6 +68,11 @@ export function GestionClientes() {
                     ...clientes,
                     data
                 ]);
+
+                mostrarNotificacion(
+                    "Cliente creado correctamente",
+                    "success"
+                );
             }
 
             setClienteEditar(null);
@@ -64,6 +80,10 @@ export function GestionClientes() {
 
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al guardar el cliente",
+                "error"
+            );
         }
     };
 
@@ -92,8 +112,17 @@ export function GestionClientes() {
                 )
             );
 
+            mostrarNotificacion(
+                "Cliente eliminado correctamente",
+                "success"
+            );
+
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al eliminar el cliente",
+                "error"
+            );
         }
     };
 

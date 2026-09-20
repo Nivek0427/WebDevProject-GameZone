@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNotification } from "../../context/NotificationContext";
 
 import {
     obtenerEstadosOrden,
@@ -17,6 +18,7 @@ export function GestionEstadosOrden() {
     const [estados, setEstados] = useState([]);
     const [estadoEditar, setEstadoEditar] = useState(null);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
+    const { mostrarNotificacion } = useNotification();
 
     useEffect(() => {
         cargarEstados();
@@ -29,6 +31,10 @@ export function GestionEstadosOrden() {
             setEstados(data);
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al cargar los estados de orden",
+                "error"
+            );
         }
     };
 
@@ -49,6 +55,11 @@ export function GestionEstadosOrden() {
                     )
                 );
 
+                mostrarNotificacion(
+                    "Estado de orden actualizado correctamente",
+                    "success"
+                );
+
             } else {
 
                 const data = await crearEstadoOrden(
@@ -59,6 +70,11 @@ export function GestionEstadosOrden() {
                     ...estados,
                     data
                 ]);
+
+                mostrarNotificacion(
+                    "Estado de orden creado correctamente",
+                    "success"
+                );
             }
 
             setEstadoEditar(null);
@@ -66,6 +82,10 @@ export function GestionEstadosOrden() {
 
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al guardar el estado de orden",
+                "error"
+            );
         }
     };
 
@@ -94,8 +114,17 @@ export function GestionEstadosOrden() {
                 )
             );
 
+            mostrarNotificacion(
+                "Estado de orden eliminado correctamente",
+                "success"
+            );
+
         } catch (error) {
             console.error(error);
+            mostrarNotificacion(
+                "Error al eliminar el estado de orden",
+                "error"
+            );
         }
     };
 

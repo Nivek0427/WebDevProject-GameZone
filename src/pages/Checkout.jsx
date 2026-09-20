@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
 import { crearOrden } from "../services/ordenService";
+import { useNotification } from "../context/NotificationContext";
 import "./Checkout.css";
 
 export function Checkout() {
@@ -13,12 +14,14 @@ export function Checkout() {
     const [metodoPago, setMetodoPago] = useState("");
     const [guardando, setGuardando] = useState(false);
     const [error, setError] = useState("");
+    const { mostrarNotificacion } = useNotification();
 
     const confirmarCompra = async (e) => {
         e.preventDefault();
 
         if (carrito.length === 0) {
             setError("El carrito está vacío");
+            mostrarNotificacion("El carrito está vacío", "error");
             return;
         }
 
@@ -35,21 +38,29 @@ export function Checkout() {
             }));
 
             await crearOrden({
-                cliente: usuario.id,
-                usuario: usuario.id,
+                cliente: Number(usuario.id),
+                usuario: Number(usuario.id),
                 fecha: new Date().toISOString().split("T")[0],
                 metodo_pago: metodoPago,
-                total,
+                total: Number(total),
                 descuento: 0,
-                detalle: JSON.stringify(detalle),
-                estado_orden: "1"
+                detalle,
+                estado_orden: 3
             });
+
+            mostrarNotificacion(
+                "¡Compra realizada correctamente!"
+            );
 
             vaciarCarrito();
             navigate("/compra-exitosa");
         } catch (error) {
             console.error(error);
             setError("No fue posible registrar la orden");
+            mostrarNotificacion(
+                "No fue posible registrar la orden",
+                "error"
+            );
         } finally {
             setGuardando(false);
         }

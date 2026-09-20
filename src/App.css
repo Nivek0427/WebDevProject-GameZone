@@ -1,0 +1,34 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	min-width: 320px;
+	background: #101216;
+}
+
+body {
+	min-width: 320px;
+	background: #101216;
+	color: #f4f6f8;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+a {
+	color: inherit;
+}
+
+#root {
+	width: 100%;
+	max-width: none;
+	min-height: 100vh;
+	margin: 0;
+	border: 0;
+	text-align: left;
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNotification } from "../../context/NotificationContext";
 
 import {
     obtenerInformaciones,
@@ -14,6 +15,7 @@ import "./GestionInformacion.css";
 
 export function GestionInformacion() {
     const [informaciones, setInformaciones] = useState([]);
+    const { mostrarNotificacion } = useNotification();
 
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState("");
@@ -36,6 +38,10 @@ export function GestionInformacion() {
         } catch (error) {
             console.error(error);
             setError("Error al cargar la información");
+            mostrarNotificacion(
+                "Error al cargar la información",
+                "error"
+            );
         } finally {
             setCargando(false);
         }
@@ -59,6 +65,11 @@ export function GestionInformacion() {
                             : item
                     )
                 );
+
+                mostrarNotificacion(
+                    "Información actualizada correctamente",
+                    "success"
+                );
             } else {
                 const nuevaInformacion =
                     await crearInformacion(informacion);
@@ -67,6 +78,11 @@ export function GestionInformacion() {
                     ...informacionesActuales,
                     nuevaInformacion
                 ]);
+
+                mostrarNotificacion(
+                    "Información creada correctamente",
+                    "success"
+                );
             }
 
             setInformacionEditar(null);
@@ -75,6 +91,10 @@ export function GestionInformacion() {
         } catch (error) {
             console.error(error);
             setError("Error al guardar la información");
+            mostrarNotificacion(
+                "Error al guardar la información",
+                "error"
+            );
         }
     };
 
@@ -103,9 +123,18 @@ export function GestionInformacion() {
                 )
             );
 
+            mostrarNotificacion(
+                "Información eliminada correctamente",
+                "success"
+            );
+
         } catch (error) {
             console.error(error);
             setError("Error al eliminar la información");
+            mostrarNotificacion(
+                "Error al eliminar la información",
+                "error"
+            );
         }
     };
 

@@ -1,0 +1,157 @@
+.checkout {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .menu-container {
+        flex-wrap: wrap;
+        padding: 0 16px;
+    }
+
+    .menu-item {
+        padding: 12px 10px;
+    }
+
+    .menu-admin-wrapper {
+        margin-left: 0;
+    }
+
+    .gestion-categorias,
+    .gestion-clientes,
+    .gestion-estados-orden,
+    .gestion-informacion,
+    .gestion-ordenes,
+    .gestion-productos,
+    .gestion-usuarios {
+        padding: 32px 18px;
+    }
+}
+
+@media (max-width: 700px) {
+    .checkout {
+        padding: 28px 16px;
+    }
+
+    .checkout h1 {
+        font-size: 30px;
+    }
+
+    .checkout-resumen,
+    .checkout-form {
+        padding: 18px;
+    }
+
+    .checkout-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .checkout-total {
+        text-align: left;
+        font-size: 18px;
+    }
+
+    .gestion-header {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 22px;
+    }
+
+    .gestion-header h1 {
+        font-size: 24px;
+    }
+
+    .gestion-header button {
+        width: 100%;
+    }
+
+    .formulario-categoria,
+    .formulario-cliente,
+    .formulario-estado-orden,
+    .formulario-informacion,
+    .formulario-orden,
+    .formulario-producto,
+    .formulario-usuario {
+        padding: 18px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .lista-categorias,
+    .lista-clientes,
+    .lista-estados-orden,
+    .lista-informacion,
+    .lista-ordenes,
+    .lista-productos,
+    .lista-usuarios {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .lista-categorias th,
+    .lista-categorias td,
+    .lista-clientes th,
+    .lista-clientes td,
+    .lista-estados-orden th,
+    .lista-estados-orden td,
+    .lista-informacion th,
+    .lista-informacion td,
+    .lista-ordenes th,
+    .lista-ordenes td,
+    .lista-productos th,
+    .lista-productos td,
+    .lista-usuarios th,
+    .lista-usuarios td {
+        padding: 10px 12px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-container {
+        align-items: stretch;
+        padding: 0 10px;
+    }
+
+    .menu-item {
+        font-size: 13px;
+        padding: 10px 8px;
+    }
+
+    .menu-categories-wrapper,
+    .menu-admin-wrapper {
+        flex: 1 1 100%;
+    }
+
+    .menu-categories,
+    .menu-admin-button {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .categories-dropdown,
+    .admin-dropdown {
+        left: 0;
+        right: 0;
+        width: auto;
+    }
+
+    .gestion-categorias,
+    .gestion-clientes,
+    .gestion-estados-orden,
+    .gestion-informacion,
+    .gestion-ordenes,
+    .gestion-productos,
+    .gestion-usuarios {
+        padding: 24px 14px;
+    }
+}

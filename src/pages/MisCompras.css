@@ -1,0 +1,211 @@
+.mis-compras {
+    min-height: 70vh;
+    background: #101216;
+    padding: 40px 24px;
+}
+
+.mis-compras-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mis-compras-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.mis-compras-header h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+    color: #f4f6f8;
+}
+
+.mis-compras-header p {
+    margin: 0;
+    color: #9da7b5;
+}
+
+.mis-compras-volver,
+.mis-compras-button {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 6px;
+    background-color: #ff6b00;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.mis-compras-volver:hover,
+.mis-compras-button:hover {
+    background-color: #e55f00;
+}
+
+.mis-compras-mensaje,
+.mis-compras-error,
+.mis-compras-vacio {
+    background: #1a1d24;
+    border: 1px solid #2d333d;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+}
+
+.mis-compras-error {
+    color: #dc3545;
+}
+
+.mis-compras-vacio-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.mis-compras-vacio h2 {
+    margin-bottom: 10px;
+    color: #f4f6f8;
+}
+
+.mis-compras-vacio p {
+    color: #9da7b5;
+    margin-bottom: 25px;
+}
+
+.mis-compras-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.compra-card {
+    background: #1a1d24;
+    border: 1px solid #2d333d;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16);
+}
+
+.compra-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #2d333d;
+}
+
+.compra-card-header > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.compra-card-label {
+    color: #888;
+    font-size: 12px;
+}
+
+.compra-card-header strong {
+    color: #f4f6f8;
+    font-size: 18px;
+}
+
+.compra-estado {
+    padding: 7px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.compra-card-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #2d333d;
+}
+
+.compra-card-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.compra-card-info span {
+    color: #888;
+    font-size: 12px;
+}
+
+.compra-card-info strong {
+    color: #f4f6f8;
+}
+
+.compra-card-detalle {
+    padding-top: 20px;
+}
+
+.compra-card-detalle h3 {
+    margin: 0 0 15px;
+    color: #222;
+    font-size: 16px;
+}
+
+.compra-producto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #2d333d;
+}
+
+.compra-producto div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.compra-producto span {
+    color: #777;
+    font-size: 13px;
+}
+
+.compra-producto strong {
+    color: #f4f6f8;
+}
+
+@media (max-width: 700px) {
+
+    .mis-compras {
+        padding: 25px 15px;
+    }
+
+    .mis-compras-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mis-compras-header h1 {
+        font-size: 25px;
+    }
+
+    .compra-card {
+        padding: 18px;
+    }
+
+    .compra-card-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .compra-card-header {
+        align-items: flex-start;
+    }
+
+    .compra-producto {
+        align-items: flex-start;
+    }
+
+}
