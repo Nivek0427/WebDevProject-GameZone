@@ -7,7 +7,6 @@ import "./Header.css";
 
 export function Header() {
     const { usuario, autenticado, cerrarSesion } = useAuth();
-    const { cantidadTotal } = useCart();
 
     const navigate = useNavigate();
 
@@ -94,12 +93,6 @@ export function Header() {
                         className="header-cart"
                     >
                         <ShoppingCart size={22} />
-
-                        {cantidadTotal > 0 && (
-                            <span className="cart-count">
-                                {cantidadTotal}
-                            </span>
-                        )}
                     </Link>
 
                 </div>

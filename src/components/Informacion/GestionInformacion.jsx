@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNotification } from "../../context/NotificationContext";
 
 import {
@@ -158,6 +159,10 @@ export function GestionInformacion() {
 
     return (
         <div className="gestion-informacion">
+
+            <Link to="/" className="gestion-back-link">
+                ← Volver al inicio
+            </Link>
 
             <div className="gestion-header">
                 <div>

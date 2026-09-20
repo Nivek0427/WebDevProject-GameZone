@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNotification } from "../../context/NotificationContext";
 
 import { obtenerOrdenes, crearOrden, actualizarOrden, eliminarOrden } from "../../services/ordenService";
@@ -160,6 +161,10 @@ export function GestionOrdenes() {
 
     return (
         <div className="gestion-ordenes">
+
+            <Link to="/" className="gestion-back-link">
+                ← Volver al inicio
+            </Link>
 
             <div className="gestion-header">
                 <div>

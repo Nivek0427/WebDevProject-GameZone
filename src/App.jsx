@@ -7,6 +7,7 @@ import { NotificationProvider } from "./context/NotificationContext";
 
 import { Inicio } from "./pages/Inicio";
 import { Productos } from "./pages/Productos";
+import { DetalleProducto } from "./pages/DetalleProducto";
 import { Login } from "./pages/Login";
 import { Carrito } from "./pages/Carrito";
 import { Checkout } from "./pages/Checkout";
@@ -41,6 +42,11 @@ function App() {
                         <Route
                             path="/productos"
                             element={<Productos />}
+                        />
+
+                        <Route
+                            path="/productos/:id"
+                            element={<DetalleProducto />}
                         />
 
                         <Route

@@ -54,6 +54,28 @@ body {
   margin: 0;
 }
 
+.gestion-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(255, 107, 0, 0.12);
+  border: 1px solid rgba(255, 107, 0, 0.35);
+  color: #ff9a52;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.gestion-back-link:hover {
+  background: rgba(255, 107, 0, 0.18);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
 #root {
   width: 1126px;
   max-width: 100%;

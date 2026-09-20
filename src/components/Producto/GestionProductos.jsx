@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNotification } from "../../context/NotificationContext";
 
 import {
@@ -194,6 +195,10 @@ export function GestionProductos() {
 
     return (
         <section className="gestion-productos">
+
+            <Link to="/" className="gestion-back-link">
+                ← Volver al inicio
+            </Link>
 
             <div className="gestion-header">
 

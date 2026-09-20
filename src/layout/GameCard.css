@@ -4,45 +4,42 @@
     display: flex;
     flex-direction: column;
 
-    background: #1a1d24;
-
-    border: 1px solid #2d333d;
-    border-radius: 14px;
-
+    background: linear-gradient(180deg, #171d27 0%, #111821 100%);
+    border: 1px solid #2a3342;
+    border-radius: 18px;
     overflow: hidden;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
 
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .game-card:hover {
-    transform: translateY(-5px);
-    border-color: #ff6b00;
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
+    transform: translateY(-4px);
+    border-color: #ff7a1a;
+    box-shadow: 0 20px 34px rgba(255, 122, 26, 0.12);
+}
+
+.game-card-image-link,
+.game-card-title-link {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* IMAGEN */
 
 .game-card-image-container {
     position: relative;
-
     width: 100%;
     aspect-ratio: 4 / 5;
-
-    background-color: #252a33;
-
+    background-color: #252b35;
     overflow: hidden;
 }
 
 .game-card-image {
     width: 100%;
     height: 100%;
-
     display: block;
-
     object-fit: cover;
-
     transition: transform 0.3s ease;
 }
 
@@ -56,22 +53,19 @@
     position: absolute;
     left: 12px;
     bottom: 12px;
-
-    padding: 5px 9px;
-
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 999px;
-
-    background: rgba(10, 12, 16, 0.78);
+    background: rgba(10, 12, 16, 0.7);
     color: #f4f6f8;
-
     font-size: 11px;
     font-weight: 700;
+    backdrop-filter: blur(4px);
 }
 
 .game-card-stock {
     display: block;
-    margin-top: 5px;
+    margin-top: 6px;
     color: #9da7b5;
     font-size: 11px;
 }
@@ -87,29 +81,14 @@
 
 .game-card-title {
     min-height: 42px;
-    margin: 0 0 9px;
-
-    color: white;
-
-    font-size: 16px;
-    font-weight: 700;
-
+    margin: 0 0 10px;
+    color: #f5f7fa;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.2;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.game-card-info {
-    display: flex;
-    flex-direction: column;
-
-    gap: 5px;
-
-    margin-bottom: 15px;
-}
-
-.game-card-label {
-    color: #f4f6f8;
 }
 
 .game-card-description {
@@ -117,7 +96,7 @@
     min-height: 66px;
     margin: 0 0 16px;
     overflow: hidden;
-    color: #aeb7c4;
+    color: #acb8c6;
     font-size: 13px;
     line-height: 1.55;
     -webkit-box-orient: vertical;
@@ -139,40 +118,60 @@
 
 .game-card-price {
     color: #ffffff;
-
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 800;
 }
 
-/* BOTÓN */
+/* BOTONES */
+
+.game-card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
 
 .game-card-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-
-    padding: 10px;
-
+    min-height: 42px;
+    padding: 10px 12px;
     border: none;
-    border-radius: 8px;
-
-    background-color: #ff6b00;
-    color: white;
-
+    border-radius: 10px;
     font-size: 13px;
     font-weight: 700;
-
+    text-decoration: none;
     cursor: pointer;
-
-    transition: background-color 0.2s;
+    transition: transform 0.18s ease, background-color 0.2s ease;
 }
 
 .game-card-button:hover:not(:disabled) {
-    background-color: #ff8126;
+    transform: translateY(-1px);
+}
+
+.game-card-link-button {
+    background: #1f2937;
+    border: 1px solid #2f3c4e;
+    color: #edf3ff;
+}
+
+.game-card-link-button:hover:not(:disabled) {
+    background: #2a3445;
+}
+
+.game-card-button:not(.game-card-link-button) {
+    background-color: #ff6b00;
+    color: white;
+}
+
+.game-card-button:not(.game-card-link-button):hover:not(:disabled) {
+    background-color: #ff7d1a;
 }
 
 .game-card-button:disabled {
     background-color: #3a3a3a;
     color: #777;
-
     cursor: not-allowed;
 }
 
